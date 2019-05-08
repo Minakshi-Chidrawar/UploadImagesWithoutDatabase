@@ -21,23 +21,48 @@
             }
         </style>
     </head>
-    <body class="bg-dark">
+    <body class="bg-info">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-sm-12 col-11 main-section">
                     <h1>Multiple upload Images</h1>
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="form-group">
-                        <input type="file" id="file-1" name="file" multiple class="file"
+                        <input type="file" id="imageFile" name="file" multiple class="file"
                             data-overwrite-initial="false" data-min-file-count="2">
                     </div>
                 </div>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.2/js/fileinput.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.2/themes/fa/theme.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" 
+                type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.2/js/fileinput.js" 
+                type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.2/themes/fa/theme.js" 
+                type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/popper.min.js" 
+                type="text/javascript"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" 
+                type="text/javascript"></script>
+
+        <script type="text/javascript">
+            $("#imageFile").fileinput({
+                theme: 'fa',
+                uploadUrl: "/image-submit",
+                uploadExtraData:function(){
+                    return {
+                        _token:$("input[name='_token]").val()
+                    };
+                },
+
+                allowedFileExtensions:['jpg', 'png', 'gif'],
+                overwriteInitial:false,
+                maxFileSize:2000,
+                maxFileNum:8,
+                slugCallBack:function(fileName){
+                    return fileName.replace('(','_').replace(']','_');
+                }
+            });
+        </script>
     </body>
 </html>

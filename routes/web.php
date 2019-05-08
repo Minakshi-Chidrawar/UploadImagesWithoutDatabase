@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::get('imageView', 'ImageController@Index');
+Route::post('imageView', 'ImageController@Store');

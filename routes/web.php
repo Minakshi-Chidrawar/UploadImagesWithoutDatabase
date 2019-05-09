@@ -15,5 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('imageView', 'ImageController@Index');
-Route::post('imageView', 'ImageController@Store');
+Route::get('imageView', 'ImageController@index');
+Route::post('image-submit', 'ImageController@store');

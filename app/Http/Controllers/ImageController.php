@@ -13,8 +13,11 @@ class ImageController extends Controller
 
     public function store($request)
     {
+        dd('this is store');
         $imageName = $request->file->getClientOriginalName();
+        dd($imageName);
         $request->file->move(public_path('upload'), $imageName);
+
         return response()->json(['uploaded'=>'/upload/'.$imageName]);
     }
 }

@@ -8,16 +8,14 @@ class ImageController extends Controller
 {
     public function index()
     {
-        return view('imageView');
+    	return view('image-view');
     }
 
-    public function store($request)
+    public function store(Request $request)
     {
-        dd('this is store');
-        $imageName = $request->file->getClientOriginalName();
-        dd($imageName);
-        $request->file->move(public_path('upload'), $imageName);
+    	$imageName = request()->file->getClientOriginalName();
+        request()->file->move(public_path('upload'), $imageName);
 
-        return response()->json(['uploaded'=>'/upload/'.$imageName]);
+        return response()->json(['uploaded' => '/upload/'.$imageName]);
     }
 }

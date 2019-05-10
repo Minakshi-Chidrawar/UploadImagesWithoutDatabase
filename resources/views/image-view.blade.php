@@ -10,22 +10,21 @@
             padding: 20px;
             margin-top: 100px;
             background-color: #fff;
-            box-shadow: 0px 0px 20px #c1c1c1;
+            box-shadow: 10px 10px 10px #c1c1c1;
         }
 
     </style>
 </head>
-<body class="bg-danger">
+<body class="bg-dark">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-sm-12 col-11 main-section">
-                <h1 class="text-center text-danger">File Input Example</h1><br>
-                
+                <h1 class="text-center text-danger">Add Images</h1><br>                
                     {!! csrf_field() !!}
                     <div class="form-group">
                         <div class="file-loading">
                             <input id="fileImg" type="file" name="file" multiple class="file" 
-                                data-overwrite-initial="false" data-min-file-count="1">
+                                data-overwrite-initial="false" data-min-file-count="2">
                         </div>
                     </div>
                 

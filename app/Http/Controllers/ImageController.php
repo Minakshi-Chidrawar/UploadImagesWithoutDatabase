@@ -28,11 +28,23 @@ class ImageController extends Controller
 
     public function create()
     {
-        $dir = public_path() . '\upload';
+        // $dir = public_path() . '\upload';
 
-        foreach(glob($dir . '\*', GLOB_ONLYDIR) as $folder)
-        {
-            dd($folder);
-        }
+        // foreach(glob($dir . '\*', GLOB_ONLYDIR) as $folder)
+        // {
+        //     dd($folder);
+        // }
+
+        $imagesPath = public_path() . '\upload\11052019';
+        $pattern = "\.(jpg|jpeg|JPG|JPEG|png|PNG|gif|GIF)$/";
+
+        $images = glob($imagesPath . '\*');
+        //dd($images);
+        // foreach(glob($images . '\*', GLOB_ONLYDIR) as $folder)
+        // {
+        //     dd($folder);
+        // }
+
+        return view('viewImage', compact('images', $images));
     }
 }

@@ -17,4 +17,4 @@ Route::get('/', function () {
 
 Route::get('image-view','ImageController@index');
 Route::post('image-view','ImageController@store');
-Route::get('create','ImageController@create');
+Route::get('viewImage','ImageController@create');

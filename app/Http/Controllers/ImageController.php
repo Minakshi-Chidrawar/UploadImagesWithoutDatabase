@@ -34,7 +34,7 @@ class ImageController extends Controller
         // {
         //     dd($folder);
         // }
-        $imagesName[] = "";
+        //$imagesName[] = "";
         $imagesPath = public_path() . '\upload\12052019';
         $pattern = "\.(jpg|jpeg|JPG|JPEG|png|PNG|gif|GIF)$/";
 
@@ -45,7 +45,7 @@ class ImageController extends Controller
             $imagesName[] = basename($image);
         }
         //dd($imagesName);
-
+        //dd(collect($imagesName)->chunk(3));
         return view('viewImage')->with('images', $imagesName);
     }
 }

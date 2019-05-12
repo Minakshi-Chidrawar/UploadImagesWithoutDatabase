@@ -34,17 +34,18 @@ class ImageController extends Controller
         // {
         //     dd($folder);
         // }
-
-        $imagesPath = public_path() . '\upload\11052019';
+        $imagesName[] = "";
+        $imagesPath = public_path() . '\upload\12052019';
         $pattern = "\.(jpg|jpeg|JPG|JPEG|png|PNG|gif|GIF)$/";
 
         $images = glob($imagesPath . '\*');
-        //dd($images);
-        // foreach(glob($images . '\*', GLOB_ONLYDIR) as $folder)
-        // {
-        //     dd($folder);
-        // }
+        foreach ($images as $image)
+        {
+            $imagePath = "";            
+            $imagesName[] = basename($image);
+        }
+        //dd($imagesName);
 
-        return view('viewImage', compact('images', $images));
+        return view('viewImage')->with('images', $imagesName);
     }
 }

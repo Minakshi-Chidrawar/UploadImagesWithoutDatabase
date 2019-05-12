@@ -3,31 +3,13 @@
     <div class="carousel-inner" role="listbox">
 
         @foreach($images as $image)
+            @if ($image != "")
 
             <div class="item">
-
-                <img src="{{ asset( $image ) }}">
-
+                <img src= "/upload/12052019/{{ $image }}" width="200px" height="200px">
             </div>
-
+            @endif
         @endforeach
 
     </div>
-
-
-    <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
-
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-
-        <span class="sr-only">Previous</span>
-
-    </a>
-    <a class="right carousel-control" href="#mycarousel" role="button" data-slide="next">
-
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-
-        <span class="sr-only">Next</span>
-
-    </a>
-
 </div>

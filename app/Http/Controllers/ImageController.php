@@ -20,7 +20,7 @@ class ImageController extends Controller
             File::makeDirectory($path, 0777, true);
         }
 
-    	$imageName = request()->file->getClientOriginalName();
+        $imageName = request()->file->getClientOriginalName();
         request()->file->move($path, $imageName);
 
         return response()->json(['uploaded' => $path . $imageName]);

@@ -22,6 +22,10 @@
                 <h1 class="text-center text-danger">Add Images</h1><br>                
                     {!! csrf_field() !!}
                     <div class="form-group">
+                        <div>
+                            <label class="form-control-label" for="name">Name:</label> 
+                            <input name="name" type="text" class="form-control" placeholder="Name"/>
+                        </div>
                         <div class="file-loading">
                             <input id="fileImg" type="file" name="file" multiple class="file" 
                                 data-overwrite-initial="false" data-min-file-count="2">

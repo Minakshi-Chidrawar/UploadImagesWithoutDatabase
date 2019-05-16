@@ -14,6 +14,7 @@ class ImageController extends Controller
 
     public function store(Request $request)
     {
+        dd($request);
         $path = public_path() . '/upload/' . Carbon::now()->isoFormat("DDMMYYYY") . '/';   
    
         if(!File::isDirectory($path)){
@@ -26,14 +27,26 @@ class ImageController extends Controller
         return response()->json(['uploaded' => $path . $imageName]);
     }
 
-    public function create()
+    public function direct()
     {
-        // $dir = public_path() . '\upload';
+        $dir = public_path() . '\upload';
 
         // foreach(glob($dir . '\*', GLOB_ONLYDIR) as $folder)
         // {
         //     dd($folder);
         // }
+        
+        //dd(glob($dir . '\*', GLOB_ONLYDIR));
+
+        $directories = array_map('basename', File::directories($dir));
+        dd($directories);
+
+    	return view('directory')->with('images', $dirName);
+    }
+
+    public function create()
+    {
+
         //$imagesName[] = "";
         $imagesPath = public_path() . '\upload\12052019';
         $pattern = "\.(jpg|jpeg|JPG|JPEG|png|PNG|gif|GIF)$/";

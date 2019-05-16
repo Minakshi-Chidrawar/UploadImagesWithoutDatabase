@@ -18,3 +18,4 @@ Route::get('/', function () {
 Route::get('image-view','ImageController@index');
 Route::post('image-view','ImageController@store');
 Route::get('viewImage','ImageController@create');
+Route::get('directory','ImageController@direct');

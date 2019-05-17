@@ -39,9 +39,9 @@ class ImageController extends Controller
         //dd(glob($dir . '\*', GLOB_ONLYDIR));
 
         $directories = array_map('basename', File::directories($dir));
-        dd($directories);
+        //dd($directories);
 
-    	return view('directory')->with('images', $dirName);
+    	return view('directory')->with('directories', $directories);
     }
 
     public function create()
